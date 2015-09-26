@@ -18,9 +18,9 @@
         android:title="@string/action_help"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_something1"
+        android:id="@+id/action_layout_test"
         android:orderInCategory="100"
-        android:title="@string/something1"
+        android:title="@string/layout_test"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_something2"
