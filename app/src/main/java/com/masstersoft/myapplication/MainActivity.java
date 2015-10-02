@@ -2,6 +2,7 @@ package com.masstersoft.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolBar;
     private DrawerLayout drawerlayout;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initNavigationView() {
+            navigationView = (NavigationView) findViewById(R.id.navigation);
+            navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        menuItem.setChecked(true);
+                        drawerlayout.closeDrawers();
+
+                        switch (menuItem.getItemId()) {
+                            case R.id.action_settings:
+                                Toast.makeText(MainActivity.this, "You clicked Settings", Toast.LENGTH_SHORT).show();
+                                return true;
+
+                            case R.id.action_layout_test:
+                                Intent intent=new Intent(MainActivity.this,LayoutTest.class);
+                                startActivity(intent);
+                                return true;
+
+                            case R.id.action_about:
+                                Toast.makeText(MainActivity.this, "You clicked About", Toast.LENGTH_SHORT).show();
+                                return true;
+                        }
+
+                        return true;
+                    }
+                });
+
         drawerlayout = (DrawerLayout) findViewById(R.id.drawerLayout);
 
     }
@@ -75,10 +104,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_help:
                 Toast.makeText(MainActivity.this, "You clicked Help", Toast.LENGTH_SHORT).show();
                 return true;
-
-           /* case R.id.action_layout_test1:
-                Intent intent1=new Intent(MainActivity.this,LayoutTest.class);
-                startActivity(intent1);*/
 
 
 
