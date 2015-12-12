@@ -30,6 +30,14 @@
             android:name=".DownloadFiles"
             android:label="@string/title_activity_download_files" >
         </activity>
+        <activity
+            android:name=".MyService"
+            android:label="@string/title_activity_my_service" >
+        </activity>
+        <activity
+            android:name=".ListViewAdapter"
+            android:label="@string/title_activity_list_view_adapter" >
+        </activity>
     </application>
 
 </manifest>

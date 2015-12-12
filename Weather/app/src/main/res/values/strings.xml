@@ -7,7 +7,11 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_main2">Forecast</string>
+    <string name="farenheight">\u2109</string>
+    <string name="celcium">℃</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_my_service">MyService</string>
+    <string name="title_activity_list_view_adapter">ListViewAdapter</string>
 </resources>

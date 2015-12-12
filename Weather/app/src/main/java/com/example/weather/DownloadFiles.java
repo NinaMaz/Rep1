@@ -1,6 +1,8 @@
 package com.example.weather;
 
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,11 +11,12 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class DownloadFiles extends AsyncTask<Void,Integer,String> {
-    protected String doInBackground(Void...params) {
+public class DownloadFiles extends AsyncTask<String,Integer,String> {
+    protected String doInBackground(String...params) {
         URL url = null;
         try {
-            url = new URL("http://api.openweathermap.org/data/2.5/forecast?q={Rostov-on-Don},{RU}?id=524901&APPID=ecf5219218accf2239f4c60d53c560ff");
+            url = new URL("http://api.openweathermap.org/data/2.5/forecast?q={"+params[0]+"}?type=accurate?id=524901&APPID=ecf5219218accf2239f4c60d53c560ff");
+
             HttpURLConnection c = (HttpURLConnection)url.openConnection();
             c.setRequestMethod("GET");
             c.setReadTimeout(10000);
